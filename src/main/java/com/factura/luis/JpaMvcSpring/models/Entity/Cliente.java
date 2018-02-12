@@ -1,14 +1,18 @@
 package com.factura.luis.JpaMvcSpring.models.Entity;
 
+import org.hibernate.validator.constraints.Email;
+import org.hibernate.validator.constraints.NotEmpty;
+import org.springframework.format.annotation.DateTimeFormat;
+
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 import java.util.Date;
 
 
 @Entity
-@Table(name="CLIENTES")
+@Table(name="clientes")
 public class Cliente implements Serializable{
-
 
     private static final long serialVersionUID = 1L;
 
@@ -16,15 +20,27 @@ public class Cliente implements Serializable{
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @NotEmpty
     private String nombre;
+
+    @NotEmpty
     private String apellido;
+
+    @NotEmpty
+    @Email
     private String email;
 
-
+    @NotNull
     @Column(name="create_at")
     @Temporal(TemporalType.DATE)
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date createAt;
 
+
+   /* @PrePersist
+    public void prePersist(){
+        createAt=new Date();
+    }*/
     public Long getId() {
         return id;
     }

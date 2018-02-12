@@ -1,14 +1,9 @@
 package com.factura.luis.JpaMvcSpring.models.dao;
 
 import com.factura.luis.JpaMvcSpring.models.Entity.Cliente;
-
-import java.util.List;
-
-public interface iClienteDao {
+import org.springframework.data.repository.CrudRepository;
 
 
-    public List<Cliente> findAll();
-
-
+public interface iClienteDao extends CrudRepository<Cliente, Long> {
 
 }
