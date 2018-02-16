@@ -1,9 +1,10 @@
 package com.factura.luis.JpaMvcSpring.models.dao;
 
+
 import com.factura.luis.JpaMvcSpring.models.Entity.Cliente;
-import org.springframework.data.repository.CrudRepository;
+import org.springframework.data.repository.PagingAndSortingRepository;
 
 
-public interface iClienteDao extends CrudRepository<Cliente, Long> {
+public interface iClienteDao extends PagingAndSortingRepository<Cliente, Long>  {
 
 }
