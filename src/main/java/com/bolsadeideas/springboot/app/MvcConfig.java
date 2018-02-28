@@ -6,7 +6,7 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter
 
 import java.nio.file.Paths;
 
-/*@Configuration
+@Configuration
 public class MvcConfig extends WebMvcConfigurerAdapter {
 
 	@Override
@@ -17,11 +17,10 @@ public class MvcConfig extends WebMvcConfigurerAdapter {
 		String resourcePath = Paths.get("uploads").toAbsolutePath().toUri().toString();
 
 		registry.addResourceHandler("/uploads/**")
-		.addResourceLocations(resourcePath);
-		//.addResourceLocations("file:/home/zafiron/Imágenes/linkysell/");
+		//.addResourceLocations(resourcePath);
+		.addResourceLocations("file:/home/zafiron/Imágenes/linkysell/");
 		
 	}
 
 	
 }
-*/

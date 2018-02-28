@@ -42,7 +42,11 @@ public class ClienteController {
   @Autowired
   private IUploadFileService uploadFileService;
 
-  @GetMapping(value = "/uploads/{filename:.+}")
+
+  /*
+  * this method return path uploads of an file on this project
+  * */
+  /*@GetMapping(value = "/uploads/{filename:.+}")
   public ResponseEntity<Resource> verFoto(@PathVariable String filename) {
 
     Resource recurso = null;
@@ -57,7 +61,7 @@ public class ClienteController {
     return ResponseEntity.ok()
         .header(HttpHeaders.CONTENT_DISPOSITION, "attachment; filename=\"" + recurso.getFilename() + "\"")
         .body(recurso);
-  }
+  }*/
 
   @GetMapping(value = "/ver/{id}")
   public String ver(@PathVariable(value = "id") Long id, Map<String, Object> model, RedirectAttributes flash) {
@@ -130,16 +134,17 @@ public class ClienteController {
       if (cliente.getId() != null && cliente.getId() > 0 && cliente.getFoto() != null
           && cliente.getFoto().length() > 0) {
 
-        uploadFileService.delete(cliente.getFoto());
+        uploadFileService.delete(cliente.getFoto(),true);
       }
 
       String uniqueFilename = null;
-      try {
+      /*try {
         uniqueFilename = uploadFileService.copy(foto);
       } catch (IOException e) {
         // TODO Auto-generated catch block
         e.printStackTrace();
-      }
+      }*/
+      uniqueFilename = uploadFileService.copyExternalDirectory(foto);
 
       flash.addFlashAttribute("info", "Has subido correctamente '" + uniqueFilename + "'");
 
@@ -164,7 +169,7 @@ public class ClienteController {
       clienteService.delete(id);
       flash.addFlashAttribute("success", "Cliente eliminado con éxito!");
 
-      if (uploadFileService.delete(cliente.getFoto())) {
+      if (uploadFileService.delete(cliente.getFoto(),true)) {
         flash.addFlashAttribute("info", "Foto " + cliente.getFoto() + " eliminada con exito!");
       }
 
