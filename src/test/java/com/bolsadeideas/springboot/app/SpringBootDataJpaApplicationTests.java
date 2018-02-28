@@ -1,4 +1,4 @@
-package com.factura.luis.JpaMvcSpring;
+package com.bolsadeideas.springboot.app;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -7,7 +7,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
-public class JpaMvcSpringApplicationTests {
+public class SpringBootDataJpaApplicationTests {
 
 	@Test
 	public void contextLoads() {

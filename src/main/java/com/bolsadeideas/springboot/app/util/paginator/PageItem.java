@@ -1,4 +1,4 @@
-package	com.factura.luis.JpaMvcSpring.util.paginator;
+package com.bolsadeideas.springboot.app.util.paginator;
 
 public class PageItem {
 

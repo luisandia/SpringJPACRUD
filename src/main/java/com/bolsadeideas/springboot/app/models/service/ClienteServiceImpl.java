@@ -1,21 +1,21 @@
-package com.factura.luis.JpaMvcSpring.models.service;
+package com.bolsadeideas.springboot.app.models.service;
 
 import java.util.List;
 
-import com.factura.luis.JpaMvcSpring.models.Entity.Cliente;
-import com.factura.luis.JpaMvcSpring.models.dao.iClienteDao;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.bolsadeideas.springboot.app.models.dao.IClienteDao;
+import com.bolsadeideas.springboot.app.models.entity.Cliente;
 
 @Service
-public class ClienteServiceImpl implements iClienteService{
+public class ClienteServiceImpl implements IClienteService{
 
 	@Autowired
-	private iClienteDao clienteDao;
+	private IClienteDao clienteDao;
 	
 	@Override
 	@Transactional(readOnly = true)
